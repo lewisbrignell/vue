@@ -2,4 +2,29 @@ b2909918486e40f7242ffd53a249af8c47f0a1b1
 
 ----------------------------------------------
 
+:: methods: {}
+
+    the methods you know and love. they react to any DOM change
+
+
+:: computed: {} 
+
+    computed properties are like methods but are treated as static values.
+    more efficient when dealing with specific changes; more context in how 
+    they're fired
+    computed properties have access to all data in your app's view
+
+:: filters: {}
+
+    filters like computed, are another type of function. filters don't have 
+    the same access - they only have access to the values passed to them
+
+
+:: directives: {}
+
+    your own custom inline event directives like @click, etc.. !
+    must always be prepended with 'v-'
+    directives allow you to pass the focus element ( el ) to it easily
+
+
 
