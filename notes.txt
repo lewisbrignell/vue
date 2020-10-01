@@ -75,3 +75,31 @@ b2909918486e40f7242ffd53a249af8c47f0a1b1
     beforeDestroy(): fired just before the componented is destroyed
 
     destroyed(): fired at the point the component is destroyed
+
+
+:: Refs
+
+  allow you to access a particular element and manipulate it in some way
+
+  e.g. on an element: <input ref="messageInput" />
+
+  refs can be accessed after the Vue has been instantiated, e.g: 
+  
+    mounted () {
+      // adds the class bg-green to the referenced input element
+      this.$refs.messageInput.className = 'bg-green'
+    }
+  
+  * bad idea to use refs where there's reactive data e.g: if the input also
+  has a class directive that defines background-color, that will override 
+  the ref's bg-green class
+
+  GOOD USE CASES FOR REFS:
+
+  form validation, autofocussing fields
+
+
+
+
+
+
