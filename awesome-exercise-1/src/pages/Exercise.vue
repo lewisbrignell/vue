@@ -11,8 +11,8 @@
 		7) Only show the beige box if both a name and age have been entered, otherwise, show the red box ("Please enter a name and age.")
 		8) Use v-show to only show the error messages next to the fields if the name is longer than 15 characters and the age is greater than 100
 		9) Add the class "error" to the input fields if they break the same rules
-	10) When the "Generate Random Person" button is clicked, generated a random name (from an array you create) and a random age from 1 - 100. These new values should be reflected everywhere in the view
-	11) Create a directive which auto-focuses the name field when the page loads
+		10) When the "Generate Random Person" button is clicked, generated a random name (from an array you create) and a random age from 1 - 100. These new values should be reflected everywhere in the view
+		11) Create a directive which auto-focuses the name field when the page loads
 	12) Make it so a random person is generated when the page first loads
 
 	-->
@@ -20,20 +20,23 @@
   	<div class="form q-mb-lg">
 	  	<div class="row q-mb-md">
 	  		<label>Name:</label>
-	  		<input v-model="name" type="text" :class="{ 'error' : name.length > 15 }"> 
+	  		<input v-autofocus v-model="name" type="text" :class="{ 'error' : name.length > 15 }"> 
 	  		<label v-show="name.length > 15" class="error">Please enter 15 characters or less</label>
 	  	</div>
 	  	<div class="row q-mb-md">
 		  	<label>Age:</label>
-		  	<input v-model="age" type="number" :class="{ 'error' : Number(age) > 100 }">
+		  	<input
+			v-model="age"
+			type="number"
+			:class="{ 'error' : Number(age) > 100 }">
 	  		<label v-show="Number(age) > 100" class="error">Please enter an age between 1 - 100</label>
 		  </div>
 		  <div class="row">
-		  	<button>Generate Random Person</button>
+		  	<button @click="doRandomStuff">Generate Random Person</button>
 		  </div>
   	</div>
   	<div
-	v-if="(name.length && age.length)"  
+	v-if="name && age"  
 	class="description q-mb-lg">
   		<p>My name is <b>{{ name }}</b> and I'm <b>{{ age }}</b> years old.</p>
   		<p>In 10 years I will be <b>{{ ageInADecade }}</b>.</p>
@@ -67,6 +70,22 @@
 			allCaps (val) {
 				return val.toUpperCase()
 			}
+		},
+		methods: {
+			doRandomStuff () {
+				this.name = this.nameList[Math.floor(Math.random() * Math.floor(this.nameList.length))]
+				this.age = Math.floor(Math.random() * Math.floor(101))
+			}
+		},
+		directives: {
+			autofocus: {
+				inserted (el) {
+					el.focus()
+				}
+			}
+		},
+		mounted () {
+			this.doRandomStuff()
 		}
 	}
 </script>

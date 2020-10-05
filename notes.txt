@@ -1,5 +1,6 @@
 b2909918486e40f7242ffd53a249af8c47f0a1b1
 
+C:\learning\vue\awesome-exercise-1
 ----------------------------------------------
 
 :: methods: {}
