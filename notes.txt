@@ -100,7 +100,9 @@ C:\learning\vue\awesome-exercise-1
   form validation, autofocussing fields
 
 
+:: displaying lists with v-for
 
+  
 
 
 
