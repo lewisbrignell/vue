@@ -5,7 +5,8 @@
         v-for="(task, index) in tasks"
         :key="task.id"
         :task="task"
-        :index="index">
+        :index="index"
+      >
         {{ task.name }}
         <button @click="deleteTask(index)">x</button>
       </task>

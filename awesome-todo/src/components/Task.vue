@@ -1,8 +1,8 @@
 <template>
-    <li>
-        <div>{{ index + 1 }}: <slot></slot></div>
-        <small>{{ task.dueDate }} @ {{ task.dueTime }}</small>
-    </li>
+  <li>
+    <div>{{ index + 1 }}: <slot></slot></div>
+    <small>{{ task.dueDate }} @ {{ task.dueTime }}</small>
+  </li>
 </template>
 
 <script>
