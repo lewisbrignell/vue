@@ -6,9 +6,9 @@
         :key="task.id"
         :task="task"
         :index="index"
+        :tasks="tasks"
       >
         {{ task.name }}
-        <button @click="deleteTask(index)">x</button>
       </task>
     </ul>
   </q-page>
@@ -38,11 +38,6 @@ export default {
           dueTime: '17:00'
         }
       ]
-    }
-  },
-  methods: {
-    deleteTask (index) {
-      this.tasks.splice(index, 1)
     }
   },
   components: {
